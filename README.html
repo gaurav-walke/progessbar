@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<title>Progress Bar Demo</title>
+
+<head>
+    <style>
+        #progressBar {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+        }
+
+        #barStatus {
+            position: absolute;
+            width: 8%;
+            height: 100%;
+            background-color: #25F;
+        }
+
+        #progressBar2 {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+        }
+
+        #barStatus2 {
+            position: absolute;
+            width: 16%;
+            height: 100%;
+            background-color: #25F;
+        }
+
+        #progressBar3 {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+        }
+
+        #barStatus3 {
+            position: absolute;
+            width: 22%;
+            height: 100%;
+            background-color: #25F;
+        }
+        #perValue1 {
+            text-align: -webkit-center;
+                color: wheat;
+                margin-top: 6px;
+                display: inherit;
+                height: 100%;
+            }
+
+            #perValue2 {
+            text-align: -webkit-center;
+                color: wheat;
+                margin-top: 6px;
+                display: inherit;
+                height: 100%;
+            }
+
+
+            #perValue3 {
+            text-align: -webkit-center;
+                color: wheat;
+                margin-top: 6px;
+                display: inherit;
+                height: 100%;
+            }
+           button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        var width = 8;
+        var temp = 8;
+        var width1 = 16;
+        var temp1 = 16;
+        var width2 = 22;
+        var temp2 = 22;
+
+        function changeBar(v) {
+            var e = document.getElementById("ddlViewBy");
+            var strUser = e.options[e.selectedIndex].value;
+            var elem = document.getElementById("barStatus");
+            var elem1 = document.getElementById("barStatus2");
+            var elem2 = document.getElementById("barStatus3");
+			var Value1 = document.getElementById("perValue1");
+			var Value2 = document.getElementById("perValue2");
+			var Value3 = document.getElementById("perValue3");
+			
+
+
+            if (strUser === '1') {
+                if (v > 0) {
+                    temp = v + temp;
+                    if (temp > 100) {
+                        temp = 100 ;
+                        alert('out of range');
+                        elem.style.background = 'red';
+						elem.style.width = temp + '%';
+						Value1.innerHTML= temp + '%';
+						Value1.style.color = 'wheat';
+                    } else {
+                        elem.style.width = temp + '%';
+						Value1.innerHTML= temp + '%';
+						Value1.style.color = 'wheat';
+                    }
+
+                } else {
+                    elem.style.background = '#25F';
+                    if (temp < 0) {
+                        temp = 0;
+                        alert('out of range');
+                    } else {
+                        temp = v + temp;
+                        if (temp > 0) {
+                            elem.style.width = temp + '%';
+							Value1.innerHTML= temp + '%';
+							Value1.style.color = 'wheat';
+                        } else {
+                            temp = 0;
+                            elem.style.width = 0 + '%';
+							Value1.innerHTML= 0 + '%';
+							Value1.style.color = '#2255ff';
+							Value1.style.padding = '0 0 0 14px';
+                        }
+                    }
+                }
+            }
+            if (strUser === '2') {
+                if (v > 0) {
+                    temp1 = v + temp1;
+                    if (temp1 > 100) {
+                        temp1 = 100;
+                        alert('out of range');
+                        elem1.style.background = 'red';
+						elem1.style.width = temp1 + '%';
+						Value2.innerHTML= temp1 + '%';
+						Value2.style.color = 'wheat';
+                    } else {
+
+                        elem1.style.width = temp1 + '%';
+						Value2.innerHTML= temp1 + '%';
+						Value2.style.color = 'wheat';
+                    }
+
+                } else {
+                    elem1.style.background = '#25F';
+                    if (temp1 < 0) {
+                        temp1 = 0;
+                        alert('out of range');
+                    } else {
+                        temp1 = v + temp1;
+                        if (temp1 > 0) {
+                            elem1.style.width = temp1 + '%';
+							Value2.innerHTML= temp1 + '%';
+							Value2.style.color = 'wheat';
+                        } else {
+                            temp1 = 0;
+                            elem1.style.width = 0 + '%';
+							Value2.innerHTML= 0 + '%';
+							Value2.style.color = '#2255ff';
+							Value2.style.padding = '0 0 0 14px';
+                        }
+                    }
+                }
+            }
+            if (strUser === '3') {
+                if (v > 0) {
+                    temp2 = v + temp2;
+                    if (temp2 > 100) {
+						temp2 = 100;
+                        alert('out of range');
+                        elem2.style.background = 'red';
+						elem2.style.width = temp2 + '%';
+						Value3.innerHTML= temp2 + '%';
+						Value3.style.color = 'wheat';
+                        
+                    } else {
+                        elem2.style.width = temp2 + '%';
+						Value3.innerHTML = temp2 + '%';
+						Value3.style.color = 'wheat';
+                    }
+                } else {
+                    elem2.style.background = '#25F';
+                    if (temp2 < 0) {
+                        temp2 = 0;
+                        alert('out of range');
+                    } else {
+                        temp2 = v + temp2;
+                        if (temp2 > 0) {
+                            elem2.style.width = temp2 + '%';
+							Value3.innerHTML= temp2 + '%';
+							Value3.style.color = 'wheat';
+                        } else {
+                            temp2 = 0;
+                            elem2.style.width = 0 + '%';
+							Value3.innerHTML= 0 + '%';
+							Value3.style.color = '#2255ff';
+							Value3.style.padding = '0 0 0 14px';
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body style="max-width:700px;margin:10% auto;text-align: center;">
+    <h1>Progress Bar Demo</h1>
+
+    <div id="progressBar">
+        <div id="barStatus"><span id="perValue1">8%</span></div>
+    </div><br>
+    <div id="progressBar2">
+        <div id="barStatus2"><span id="perValue2">16%</span></div>
+    </div><br>
+    <div id="progressBar3">
+        <div id="barStatus3"><span id="perValue3">22%</span></div>
+    </div>
+
+    <br>
+    <select id="ddlViewBy" style="padding: 5px;cursor: pointer;">
+        <option value="1">#Progress 1 </option>
+        <option value="2">#Progress 2 </option>
+        <option value="3">#Progress 3 </option>
+    </select>
+    <button onclick="changeBar(-25)">-25</button> 
+    <button onclick="changeBar(-10)">-10</button>
+    <button onclick="changeBar(10)">+10</button> 
+    <button onclick="changeBar(25)">+25</button>
+
+</body>
+
+</html>
